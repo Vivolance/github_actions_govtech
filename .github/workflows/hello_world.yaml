@@ -1,17 +1,16 @@
-# name
-name: hello_world
-
 # trigger -> condition that trigger workflow
 on:
-- push
+  push
 
-# one or more jobs
+name: Cowsays
+
 jobs:
-  greetings:
-    # Everything inside here is your server
-    runs-on: ubuntu-latest`
-    # all steps below here will be running on ubuntu
+  cow:
+    name: Cowsays
+    runs-on: ubuntu-latest
     steps:
-    - id: s00
-      # running some shell commands
-      run: echo "Current time in Github is $(date)"
+    - name: Ship it
+      uses: mscoutermarsh/cowsays-action@master
+      with:
+        text: 'ship ship ship!'
+        color: 'red'
