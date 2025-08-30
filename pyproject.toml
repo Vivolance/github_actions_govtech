@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "github-actions-govtech"
+version = "0.1.0"
+description = ""
+authors = ["Elson <elsonccj@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+black = "^25.1.0"
+ruff = "^0.12.11"
+mypy = "^1.17.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
