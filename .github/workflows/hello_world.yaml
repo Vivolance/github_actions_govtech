@@ -1,21 +1,46 @@
-# trigger -> condition that trigger workflow
-on:
-  push
+# Project 1: trigger -> condition that trigger workflow
+#on:
+#  push
+#
+#name: Cowsays
+#
+#jobs:
+#  greetings:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - id: s00
+#      run: echo "Current time is $(date)"
+#    - id: s01
+#      # create a value and pass to the next step
+#      run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
+#    - id: s02
+#      uses: mscoutermarsh/cowsays-action@master
+#      with:
+#        # step - context (special variable)
+#        text: 'Moo Moo Cow! ${{ steps.s01.outputs.CURR_DATE }}'
+#        color: green
 
-name: Cowsays
+
+# Project 2:
+
+on: push
+
+name: build_countingbook_app
 
 jobs:
-  greetings:
+  build_app:
     runs-on: ubuntu-latest
     steps:
-    - id: s00
-      run: echo "Current time is $(date)"
-    - id: s01
-      # create a value and pass to the next step
-      run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
-    - id: s02
-      uses: mscoutermarsh/cowsays-action@master
-      with:
-        # step - context (special variable)
-        text: 'Moo Moo Cow! ${{ steps.s01.outputs.CURR_DATE }}'
-        color: green
+      - id: s00
+        run: echo "github ${{ github.ref_name }}"
+      # Setup the environment
+      - run: ls -l
+      - id: s02
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.7.0
+      - id: s03
+        uses: actions/checkout@v5
+      - run: ls -l
+
+
