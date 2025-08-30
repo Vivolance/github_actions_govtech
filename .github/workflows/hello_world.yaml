@@ -34,13 +34,13 @@ jobs:
       - id: s00
         run: echo "github ${{ github.ref_name }}"
       # Setup the environment
-      - run: ls -l
+      - run: echo "before " && ls -l
       - id: s02
         uses: actions/setup-node@v4
         with:
           node-version: 24.7.0
       - id: s03
         uses: actions/checkout@v5
-      - run: ls -l
+      - run: echo "after " && ls -l
 
 
