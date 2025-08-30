@@ -1,0 +1,17 @@
+# name
+name: hello_world
+
+# trigger -> condition that trigger workflow
+on:
+- push
+
+# one or more jobs
+jobs:
+  greetings:
+    # Everything inside here is your server
+    runs-on: ubuntu-latest`
+    # all steps below here will be running on ubuntu
+    steps:
+    - id: s00
+      # running some shell commands
+      run: echo "Current time in Github is $(date)"
