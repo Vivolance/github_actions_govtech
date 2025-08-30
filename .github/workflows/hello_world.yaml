@@ -7,17 +7,13 @@ on:
 
 # one or more jobs
 jobs:
-  greetings:
-    # Everything inside here is your server
-    runs-on: ubuntu-latest`
-    # all steps below here will be running on ubuntu
+  cow:
+    name: Cowsays
+    runs-on: ubuntu-latest
     steps:
-    - id: s00
-      # running some shell commands
-      run: echo "Current time in Github is $(date)"
-    - id: s01
-      # cat the file
-      run: cat hello.txt
-    - id: s02
-      # list the directory
-      run: ls -l
+    - name: Ship it
+      uses: mscoutermarsh/cowsays-action@master
+      with:
+        text: 'ship ship ship!'
+        color: 'red'
+
