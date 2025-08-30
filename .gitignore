@@ -2,3 +2,4 @@
 .envt pu
 .env
 .idea/*
+.secrets
