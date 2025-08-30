@@ -5,12 +5,17 @@ on:
 name: Cowsays
 
 jobs:
-  cow:
-    name: Cowsays
+  greetings:
     runs-on: ubuntu-latest
     steps:
-    - name: Ship it
+    - id: s00
+      run: echo "Current time is $(date)"
+    - id: s01
+      # create a value and pass to the next step
+      run: echo "CURR_DATE=$(DATE)" >> $GITHUB_OUTPUT
+    - id: s02
       uses: mscoutermarsh/cowsays-action@master
       with:
-        text: 'ship ship ship!'
-        color: 'red'
+        # step - context (special variable)
+        text: 'Moo Moo Cow! ${{ steps.s01.outputs.CURR_DATE }}'
+        color: green
